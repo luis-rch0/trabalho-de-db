@@ -1,0 +1,64 @@
+1. Criação do Banco de Dados
+Foi criado um banco de dados chamado db_revenda_Luis para armazenar informações sobre clientes, produtos, fornecedores, pedidos e pagamentos.
+
+2. Criação das Tabelas
+Foram criadas as seguintes tabelas:
+
+Tabela cliente: Armazena informações sobre os clientes, incluindo ID, nome, email, número de telefone, data de cadastro e status ativo.
+
+Tabela produto: Armazena informações sobre os produtos, incluindo ID, nome, categoria, preço, estoque e código de barras.
+
+Tabela fornecedor: Armazena informações sobre os fornecedores, incluindo ID, nome, CNPJ, telefone, cidade e status ativo.
+
+Tabela pedido: Armazena informações sobre os pedidos, incluindo ID, ID do cliente, data do pedido, valor total e status do pedido. Foi adicionado um campo cliente_id para referenciar a tabela cliente.
+
+Tabela pagamento: Armazena informações sobre os pagamentos, incluindo ID, ID do pedido, método de pagamento, valor, data do pagamento e status de confirmação.
+
+Tabela pedido_produto: Armazena a relação entre pedidos e produtos, incluindo IDs de pedido e produto, quantidade e preço unitário.
+
+3. Criação das Views
+Duas views foram criadas para facilitar a consulta de dados:
+
+View vw_pedido_cliente: Exibe informações sobre os pedidos e os clientes associados, incluindo ID do pedido, nome do cliente, data do pedido, valor total e status.
+
+View vw_pedido_produto: Exibe informações sobre os produtos em cada pedido, incluindo ID do pedido, nome do produto, quantidade, preço unitário e subtotal.
+
+4. Inserção de Dados
+Foram inseridos dados nas tabelas cliente, produto, fornecedor, pedido, pagamento e pedido_produto para simular um cenário de vendas.
+
+5. Consultas nas Views
+Foram realizadas consultas nas views vw_pedido_cliente e vw_pedido_produto para visualizar as informações armazenadas.
+
+6. Consulta Filtrando um Campo de Texto
+Foi realizada uma consulta na tabela cliente utilizando o operador LIKE para filtrar clientes cujo nome contém a palavra "Marcos".
+
+7. Execução do Comando EXPLAIN
+Foi executado o comando EXPLAIN para analisar o plano de execução da consulta anterior, permitindo entender como o PostgreSQL processa a consulta.
+
+8. Criação de Índice
+Um índice foi criado na coluna nome da tabela cliente para otimizar a consulta que utiliza o operador LIKE.
+
+9. Reexecução da Consulta com EXPLAIN
+A consulta filtrando o nome foi reexecutada e o comando EXPLAIN foi utilizado novamente para comparar o plano de execução antes e depois da criação do índice.
+
+10. Alteração de Tipos de Colunas
+Foram realizadas tentativas de alterar tipos de colunas:
+
+A coluna numero_telefone da tabela cliente foi tentada para ser alterada de VARCHAR para INT, o que pode resultar em erro se houver dados não convertíveis.
+A coluna produto_id da tabela produto foi tentada para ser alterada de INT para VARCHAR, o que também pode resultar em erro.
+11. Criação de Usuários
+Foram criados dois usuários:
+
+Um usuário com permissões totais para todas as tabelas do banco de dados.
+Um usuário para um colega, com permissão apenas para realizar consultas na tabela cliente.
+12. Reexecução de Consultas pelo Usuário Colega
+Todos os passos anteriores foram repetidos utilizando o usuário criado para o colega, registrando erros e acertos.
+
+13. Criação de Consultas com JOIN
+Foram criadas 12 consultas utilizando diferentes tipos de JOIN (INNER, LEFT e RIGHT) para relacionar as tabelas cliente e pedido.
+
+14. Atualização de Registros
+Foram atualizados registros na tabela cliente, definindo um valor padrão para colunas que estavam com NULL.
+
+15. Reexecução das Consultas com JOIN
+As consultas com JOIN foram reexecutadas para avaliar os resultados após as atualizações realizadas.
